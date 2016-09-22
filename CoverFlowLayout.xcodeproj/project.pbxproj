@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		28C134671D946F7B00B851C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C134661D946F7B00B851C3 /* main.m */; };
 		28C1346A1D946F7B00B851C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C134691D946F7B00B851C3 /* AppDelegate.m */; };
-		28C1346D1D946F7B00B851C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C1346C1D946F7B00B851C3 /* ViewController.m */; };
 		28C134701D946F7B00B851C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C1346E1D946F7B00B851C3 /* Main.storyboard */; };
 		28C134721D946F7B00B851C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C134711D946F7B00B851C3 /* Assets.xcassets */; };
 		28C134751D946F7B00B851C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C134731D946F7B00B851C3 /* LaunchScreen.storyboard */; };
+		28C1347E1D946FD400B851C3 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C1347D1D946FD400B851C3 /* CollectionViewController.m */; };
+		28C134811D9470CD00B851C3 /* CoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C134801D9470CD00B851C3 /* CoverFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,14 @@
 		28C134661D946F7B00B851C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		28C134681D946F7B00B851C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28C134691D946F7B00B851C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		28C1346B1D946F7B00B851C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		28C1346C1D946F7B00B851C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		28C1346F1D946F7B00B851C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28C134711D946F7B00B851C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28C134741D946F7B00B851C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28C134761D946F7B00B851C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C1347C1D946FD400B851C3 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		28C1347D1D946FD400B851C3 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		28C1347F1D9470CD00B851C3 /* CoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverFlowLayout.h; sourceTree = "<group>"; };
+		28C134801D9470CD00B851C3 /* CoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,15 +61,17 @@
 		28C134641D946F7B00B851C3 /* CoverFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				28C1347F1D9470CD00B851C3 /* CoverFlowLayout.h */,
+				28C134801D9470CD00B851C3 /* CoverFlowLayout.m */,
 				28C134681D946F7B00B851C3 /* AppDelegate.h */,
 				28C134691D946F7B00B851C3 /* AppDelegate.m */,
-				28C1346B1D946F7B00B851C3 /* ViewController.h */,
-				28C1346C1D946F7B00B851C3 /* ViewController.m */,
 				28C1346E1D946F7B00B851C3 /* Main.storyboard */,
 				28C134711D946F7B00B851C3 /* Assets.xcassets */,
 				28C134731D946F7B00B851C3 /* LaunchScreen.storyboard */,
 				28C134761D946F7B00B851C3 /* Info.plist */,
 				28C134651D946F7B00B851C3 /* Supporting Files */,
+				28C1347C1D946FD400B851C3 /* CollectionViewController.h */,
+				28C1347D1D946FD400B851C3 /* CollectionViewController.m */,
 			);
 			path = CoverFlowLayout;
 			sourceTree = "<group>";
@@ -150,9 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28C1346D1D946F7B00B851C3 /* ViewController.m in Sources */,
 				28C1346A1D946F7B00B851C3 /* AppDelegate.m in Sources */,
+				28C134811D9470CD00B851C3 /* CoverFlowLayout.m in Sources */,
 				28C134671D946F7B00B851C3 /* main.m in Sources */,
+				28C1347E1D946FD400B851C3 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
