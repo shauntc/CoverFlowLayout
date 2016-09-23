@@ -17,15 +17,15 @@
 
 @implementation CoverFlowLayout
 
-CGFloat const scaleFactor = 3.0;
+CGFloat const scaleFactor = 1.5;
 
 -(void)prepareLayout
 {
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    self.itemSize = CGSizeMake(100, 100);
+    self.itemSize = CGSizeMake(200, 200);
     self.sectionInset = UIEdgeInsetsMake(150, 150, 150, 150);
-    self.minimumLineSpacing = 100;
+    self.minimumLineSpacing = 0;
     
     
     
@@ -62,18 +62,43 @@ CGFloat const scaleFactor = 3.0;
                     cellAttributes.transform3D = CATransform3DTranslate(cellAttributes.transform3D, -xDist/scaleFactor, 0, 0);
                 }
                 else{
+                    
+                    
+                    // 0 at x40 -> 45 at x130
+                    float degrees = (-xDist/fabs(xDist)) * (45) * ((fabs(xDist)-40)/(90));
+                    cellAttributes.transform3D = [self Rotate3dByDegrees:degrees];
+
+                    
                     CGFloat xTransf = scaleFactor - (scaleFactor - 1.0)*((fabs(xDist)-40)/(90));
-                    cellAttributes.transform3D = CATransform3DMakeScale(xTransf, xTransf, 0);
+                    cellAttributes.transform3D = CATransform3DScale(cellAttributes.transform3D, xTransf, xTransf, 0);
                     
                     CGFloat xTranslate = (-xDist/scaleFactor)*(1 - ((fabs(xDist)-40)/(90)));
                     cellAttributes.transform3D = CATransform3DTranslate(cellAttributes.transform3D, xTranslate, 0, 0);
+                    
+                    
+                    //alpha 1 at x40 -> 0.25 at x130
+                    CGFloat alpha = 0.25 +  (0.75)*(1-((fabs(xDist)-40)/(90)));
+                    cellAttributes.alpha = alpha;
+                    
+                    
+                    
+
                 }
                 
             }
-            else
-            {
+            else{
+                
                 cellAttributes.alpha = 0.25;
-//                cellAttributes.transform3D = CA
+                
+                if(xDist > 0)
+                {
+                    cellAttributes.transform3D = [self Rotate3dByDegrees:-45];
+                }
+                else{
+                    cellAttributes.transform3D = [self Rotate3dByDegrees:45];
+                }
+                
+                
             }
             
             
@@ -87,6 +112,18 @@ CGFloat const scaleFactor = 3.0;
     
     return attributes;
 }
+
+
+-(CATransform3D)Rotate3dByDegrees:(float)degrees
+{
+    CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
+    rotationAndPerspectiveTransform.m34 = 1.0 / -200;
+    rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, degrees * M_PI / 180.0f, 0.0f, 1.0f, 0.0f);
+    return rotationAndPerspectiveTransform;
+}
+
+
+
 
 //-(CGSize)collectionViewContentSize
 //{
